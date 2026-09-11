@@ -44,3 +44,41 @@ print("/".join(["mysite.com", "products", "sale"]))
 print("-".join(["2026", "04", "30"]))
 print(" ".join(["hip", "hip", "hurray"]))
 print("".join(letters))
+
+promo_code = "FLASH50"
+user_code = input("Enter your promo code: ")
+print("Promo code is valid!" if user_code == promo_code else "Invalid promo code.")
+
+unread_messages = 0
+age = 25
+cart_total = 45
+tickets_left = 8
+print(f"Has unread messages (more than 0): {unread_messages > 0}")
+print(f"Old enough to rent a car (25 or older): {age >= 25}")
+print(f"Under the $50 free shipping minimum: {cart_total < 50}")
+print(f"Sold out (0 tickets left): {tickets_left == 0}")
+
+student_score = int(input("Enter your score: "))
+if student_score >= 60:
+    print("Congratulations! You passed the test.")
+else:
+    print("Sorry, you did not pass the test. Better luck next time.")
+
+signal = 2
+if signal == 0:
+    print("%50 off, sorry about the Wi-Fi!")
+elif 1 <= signal <= 2:
+    print("%25 off.")
+elif 3 <= signal <= 4:
+    print("%10 off.")
+elif signal == 5:
+    print("Full bars, no discount today!")
+
+code = "spring26"
+full_name = "jamie rivera"
+email = "  Jamie@Example.COM"
+display_name = "   the ROCK   "
+print(code.upper())
+print(full_name.title())
+print(email.lower().strip())
+print(display_name.strip().title())

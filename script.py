@@ -30,3 +30,20 @@ passenger_num = 1
 while passenger_num <= PASSENGERS:
     print(f"Printing boarding pass {passenger_num} of {PASSENGERS}...")
     passenger_num += 1
+
+lobby = []
+lobby.append("Xena")
+lobby.append("Thor")
+lobby.append("Merlin")
+lobby.append("Ripley")
+print(lobby)
+
+entrants = ["Amara", "Diego", "Priya", "Leo", "Sofia", "Kwame"]
+winners = ["Diego", "Sofia"]
+
+winner = random.choice(entrants)
+while winner in winners:
+    winner = random.choice(entrants)
+
+winners.append(winner)
+print(f"Newest Winner is {winner}")

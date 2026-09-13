@@ -1,74 +1,109 @@
-import random
+guests = ["Marcus", "Lena", "Sarah", "Priya"]
 
-# roll = random.randint(1, 6)
-# print(f"You rolled a {roll}!")
-# Peki bunu birçok kez yapmak istesek?
+for guest in guests:
+    print(f"Welcome, {guest}!")
 
-def roll_dice():
-# Fonksiyonu tanımladık.
-    roll = random.randint(1, 6)
-    print(f"You rolled a {roll}!")
+nominees = ["PixelPal", "TaskTanic", "SnackMap", "MoodTunes"]
 
-def throw_dice():
-    roll_dice()
-    roll_dice()
-    # Fonksiyonu çağırdık, hem de başka fonksiyonun içerisinde.
+for nominee in nominees:
+    print(f"Nominated for Best New App: {nominee}")
 
-def announce_coffe_run():
-    print()
-    print("I am headed to the coffee shop! Who wants latte?")
-    print()
+print("And those are your nominees!")
 
-def calculate_total_cost(latte_quantity: int):
-    print()
-    print(f"{latte_quantity} lattes comes to ${latte_quantity * 5}.")
-    print()
+friends = [("Marcus", "Lasagna"), ("Lena", "Salad"), ("Sarah", "Brownies")]
 
-def you_are_welcome():
-    print()
-    print("You're welcome!")
-    print("You're welcome!")
-    print()
+for friend in friends:
+    name, dish = friend
+    print(f"{name} is bringing {dish}.")
 
-def coffee_run():
-    announce_coffe_run()
-    you_are_welcome()
-    you_are_welcome()
-    you_are_welcome()
-    calculate_total_cost(0)
+lineup = [
+    ("The Waiters", "reggae", 45),
+    ("Daft Punk", "electronic", 90),
+    ("Adele", "pop", 60),
+    ("Metallica", "metal", 100),
+]
 
-coffee_run()
+for act in lineup:
+    band, genre, minutes = act
 
-def greet(name, unread_messages):
-    print(f"Welcome, {name}! You have {unread_messages} new messages.")
+    if minutes >= 90:
+        print(f"{band} ({genre}) plays a long set: {minutes} minutes.")
+    else:
+        print(f"{band} ({genre}) plays {minutes} minutes.")
 
-greet("Sude", 15)
+contacts = ["Freda", "Homer", "Chance"]
 
-def sum(number1, number2):
-    print(f"{number1} + {number2} = {number1 + number2}")
+for index, contact in enumerate(contacts):
+    print(index, contact)
 
-def scramble(word):
-    letters = list(word)
-    random.shuffle(letters)
-    scrambled_word = "".join(letters)
-    print(scrambled_word)
+def remove_contacts(contacts, name):
+    for contact in contacts:
+        if contact == name:
+            contacts.remove(contact)
+            print(f"Removed {name}.")
+            return
+            # Boş bir return atmazsak çalışmaya devam edecek.
+    print(f"{name} isn't in your contacts.")
 
-scramble("mustafa")
+remove_contacts(contacts, "Mustafa")
+remove_contacts(contacts, "Homer")
 
-def room_area(length, width):
-    return length * width
+tasks = ["email Sam", "book the venue", "pay the band"]
+first = tasks.pop(0)
+# Hem çıkarır hem de değeri döner. remove() ile farkı buradadır.
+tasks.insert(0, "pay rent")
+# Belirli index konumuna ekleme yapmayı sağlar.
 
-area = room_area(12, 10)
-print(f"The room is {area} square feet.")
+age = 24
+if age >= 21:
+    print("This person can ride.")
 
-def add_tax(price):
-    return price * 1.08
+got_enough_sun = True
+was_watered = True
 
-total = add_tax(50)
-print(f"With tax, that comes to ${total: .2f}.")
+if got_enough_sun and was_watered:
+    print("It bloomed!")
 
-def full_name(first, last):
-    return first + " " + last
+is_costume_party = False
+knows_nobody = True
 
-name = full_name("Mustafa", "TAVASLI")
-print(f"Welcome, {name}!")
+if is_costume_party or knows_nobody:
+    print("Hat's going on.")
+
+is_weekend = False
+
+if not is_weekend:
+    print("Cat wins.")
+
+orders = ["latte", "muffin"]
+
+def serve_order(orders):
+    if len(orders) == 0:
+        print("Nothing left to serve.")
+        return
+    item = orders.pop(0)
+    print(f"Seving: {item}")
+
+serve_order([])
+
+waitlist = []
+
+def call_next(waitlist):
+    """ Seat the first guest on the waitlist. """
+    if len(waitlist) == 0:
+        print("The waitlist is empty.")
+        return
+    name = waitlist[0]
+    print(f"Now seating: {name}")
+
+try:
+    number = int("banana")
+except ValueError:
+    print("Please enter a number.")
+# Hata oluşabilecek durumları doğru yönetmeyi sağlar.
+
+try:
+    number_of_hot_dogs = int(input("How many hot dogs can you eat? "))
+    print(f"Signed up for {number_of_hot_dogs} hot dogs. Good luck!")
+except ValueError:
+    print("I need a number to sign you up.")

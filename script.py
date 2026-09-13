@@ -1,49 +1,74 @@
 import random
 
-steel_blue = (70, 130, 180)
-red, green, blue = steel_blue
-# Her birine sırasıyla değerler atanır.
+# roll = random.randint(1, 6)
+# print(f"You rolled a {roll}!")
+# Peki bunu birçok kez yapmak istesek?
 
-inventory = [
-    ("notebooks", 42),
-    ("pens", 130),
-    ("staples", 8),
-]
+def roll_dice():
+# Fonksiyonu tanımladık.
+    roll = random.randint(1, 6)
+    print(f"You rolled a {roll}!")
 
-print(f"{inventory[0][0]}: {inventory[0][1]} in stock.")
-print(f"{inventory[1][0]}: {inventory[1][1]} in stock.")
-# İç içe şekilde index ile erişiyoruz.
-item, quantity = inventory[2]
-print(f"{item}: {quantity} in stock.")
-# Burada da tuple çıkarıp değişkenlere atamayı kullandık.
+def throw_dice():
+    roll_dice()
+    roll_dice()
+    # Fonksiyonu çağırdık, hem de başka fonksiyonun içerisinde.
 
-count = 1
-while count <= 5:
-    if count == 3:
-        break
-    print(f"Count is: {count}")
-    count += 1
-    # Değişim olmalı ki sonsuz döngü olmasın.
+def announce_coffe_run():
+    print()
+    print("I am headed to the coffee shop! Who wants latte?")
+    print()
 
-PASSENGERS = 5
-passenger_num = 1
-while passenger_num <= PASSENGERS:
-    print(f"Printing boarding pass {passenger_num} of {PASSENGERS}...")
-    passenger_num += 1
+def calculate_total_cost(latte_quantity: int):
+    print()
+    print(f"{latte_quantity} lattes comes to ${latte_quantity * 5}.")
+    print()
 
-lobby = []
-lobby.append("Xena")
-lobby.append("Thor")
-lobby.append("Merlin")
-lobby.append("Ripley")
-print(lobby)
+def you_are_welcome():
+    print()
+    print("You're welcome!")
+    print("You're welcome!")
+    print()
 
-entrants = ["Amara", "Diego", "Priya", "Leo", "Sofia", "Kwame"]
-winners = ["Diego", "Sofia"]
+def coffee_run():
+    announce_coffe_run()
+    you_are_welcome()
+    you_are_welcome()
+    you_are_welcome()
+    calculate_total_cost(0)
 
-winner = random.choice(entrants)
-while winner in winners:
-    winner = random.choice(entrants)
+coffee_run()
 
-winners.append(winner)
-print(f"Newest Winner is {winner}")
+def greet(name, unread_messages):
+    print(f"Welcome, {name}! You have {unread_messages} new messages.")
+
+greet("Sude", 15)
+
+def sum(number1, number2):
+    print(f"{number1} + {number2} = {number1 + number2}")
+
+def scramble(word):
+    letters = list(word)
+    random.shuffle(letters)
+    scrambled_word = "".join(letters)
+    print(scrambled_word)
+
+scramble("mustafa")
+
+def room_area(length, width):
+    return length * width
+
+area = room_area(12, 10)
+print(f"The room is {area} square feet.")
+
+def add_tax(price):
+    return price * 1.08
+
+total = add_tax(50)
+print(f"With tax, that comes to ${total: .2f}.")
+
+def full_name(first, last):
+    return first + " " + last
+
+name = full_name("Mustafa", "TAVASLI")
+print(f"Welcome, {name}!")
